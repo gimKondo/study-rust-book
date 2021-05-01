@@ -33,6 +33,10 @@ fn main() {
     let mut s = String::from("hello");
     change(&mut s);
     println!("{}", s);
+
+    // let reference_to_nothing = dangle();
+    let s = no_dangle();
+    println!("{}", s);
 }
 
 fn take_ownership(s: String) {
@@ -58,4 +62,14 @@ fn calculate_length(s: &String) -> usize {
 
 fn change(s: &mut String) {
     s.push_str(", world");
+}
+
+// fn dangle() -> &String {
+//     let s = String::from("hello dangle");
+//     &s
+// }
+
+fn no_dangle() -> String {
+    let s = String::from("hello no dangle");
+    s
 }
