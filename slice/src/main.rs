@@ -1,12 +1,16 @@
 fn main() {
-    let s = String::from("hello world");
+    let mut s = String::from("hello world");
     let word = first_word(&s);
+    // this cause error by "mutable borrow occurs here"
+    // s.clear();
     println!("word = {}", word);
 
     let hello = &s[0..5];
     let world = &s[6..11];
     println!("{}", hello);
     println!("{}", world);
+
+    s.clear();
 }
 
 fn first_word(s: &String) -> &str {
