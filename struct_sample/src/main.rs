@@ -35,7 +35,10 @@ fn main() {
         username: String::from("another_username1"),
         ..user1
     };
-    println!("Hello, {}!", user3.username);
+    println!(
+        "Hello, {}! (E-mail: {} / sign in count: {} / active: {})",
+        user3.username, user3.email, user3.sign_in_count, user3.active
+    );
     let black = Color(0, 0, 0);
     let origin = Point(0, 0, 0);
     println!("black ({}, {}, {})!", black.0, black.1, black.2);
