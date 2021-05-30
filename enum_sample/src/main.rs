@@ -31,6 +31,13 @@ enum UsState {
     Alaska,
 }
 
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        None => None,
+        Some(i) => Some(i + 1),
+    }
+}
+
 fn value_in_cents(coin: Coin) -> u32 {
     match coin {
         Coin::Penny => {
@@ -59,4 +66,6 @@ fn main() {
     println!("Coin value: {}", coin_value);
     value_in_cents(Coin::Penny);
     value_in_cents(Coin::Quarter(UsState::Alabama));
+    println!("maybe 6: {:?}", plus_one(Some(5)));
+    println!("maybe None: {:?}", plus_one(None));
 }
