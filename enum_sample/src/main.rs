@@ -53,6 +53,12 @@ fn value_in_cents(coin: Coin) -> u32 {
     }
 }
 
+fn print_if_3(i: Option<u32>) -> () {
+    if let Some(3) = i {
+        println!("this is three!");
+    }
+}
+
 fn main() {
     let home = IpAddr::V4(String::from("127.0.0.1"));
     println!("Home IP: {:?}", home);
@@ -68,4 +74,6 @@ fn main() {
     value_in_cents(Coin::Quarter(UsState::Alabama));
     println!("maybe 6: {:?}", plus_one(Some(5)));
     println!("maybe None: {:?}", plus_one(None));
+    print_if_3(Some(3));
+    print_if_3(None);
 }
