@@ -44,11 +44,18 @@ mod back_of_house {
     fn cook_order() {}
 }
 
+use crate::front_of_house::hosting;
+// use self::front_of_house::hosting;
+
 pub fn eat_at_restaurant() {
     // absolute path
     crate::front_of_house::hosting::add_to_wait_list();
+
     // relative path
     front_of_house::hosting::add_to_wait_list();
+
+    // use hosting mod
+    hosting::add_to_wait_list();
 
     let mut meal = back_of_house::Breakfast::summer("Rye");
     meal.show_menu();
