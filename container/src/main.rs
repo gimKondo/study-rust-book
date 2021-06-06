@@ -7,5 +7,17 @@ fn main() {
     v3.push(3);
     v3.push(3);
     v3.push(4);
+    v3.push(5);
     println!("Vec: {:?}", v3);
+    let third = v3[2];
+    v3.push(6);
+    println!("v[2]: {:?}", third);
+
+    let fifth = v3.get(4);
+    println!("v[2]: {:?}", fifth);
+
+    let first = &v3[0];
+    // error: cannot borrow `v3` as mutable because it is also borrowed as immutable
+    // v3.push(6);
+    println!("v[0]: {:?}", first);
 }
