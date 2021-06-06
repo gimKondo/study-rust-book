@@ -20,4 +20,12 @@ fn main() {
     // error: cannot borrow `v3` as mutable because it is also borrowed as immutable
     // v3.push(6);
     println!("v[0]: {:?}", first);
+    for i in &v3 {
+        println!("{}", i);
+    }
+    for i in &mut v3 {
+        *i += 50;
+        println!("{}", i);
+    }
+    println!("Vec: {:?}", v3);
 }
