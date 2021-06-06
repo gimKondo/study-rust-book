@@ -46,6 +46,7 @@ mod back_of_house {
 
 use crate::front_of_house::hosting;
 // use self::front_of_house::hosting;
+use std::collections::HashMap;
 
 pub fn eat_at_restaurant() {
     // absolute path
@@ -56,6 +57,10 @@ pub fn eat_at_restaurant() {
 
     // use hosting mod
     hosting::add_to_wait_list();
+
+    let mut map = HashMap::new();
+    map.insert(1, 2);
+    println!("map: {:?}", map);
 
     let mut meal = back_of_house::Breakfast::summer("Rye");
     meal.show_menu();
