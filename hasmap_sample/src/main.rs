@@ -30,9 +30,9 @@ fn main() {
     // field_name cause error `value borrowed here after move`
 
     let text = "hello world wonderful world";
-    let mut map = HashMap::new();
+    let mut map: HashMap<_, i32> = HashMap::new();
     for word in text.split_whitespace() {
-        let count = map.entry(word).or_insert(0);
+        let count = map.entry(word).or_default();
         *count += 1;
     }
     println!("{:?}", map);
