@@ -11,4 +11,13 @@ fn main() {
     let initial_score = vec![10, 50];
     let scores: HashMap<_, _> = teams.iter().zip(initial_score.iter()).collect();
     println!("Colors: {:?}", scores);
+
+    let field_name = String::from("Favorite Color");
+    let field_value = 32;
+
+    let mut map = HashMap::new();
+    map.insert(field_name, field_value);
+    println!("map: {:?}", map);
+    // println!("map: {}: {}", field_name, field_value);
+    // field_name cause error `value borrowed here after move`
 }
