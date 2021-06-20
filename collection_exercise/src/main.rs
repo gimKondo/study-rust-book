@@ -11,6 +11,18 @@ fn main() {
     println!("first: {}", pig_latin("first"));
     println!("first: {}", pig_latin("ファースト"));
     println!("apple: {}", pig_latin("apple"));
+
+    let mut name_list = HashMap::new();
+    register_member(&mut name_list, String::from("Sales"), String::from("John"));
+    println!("name_list: {:?}", name_list);
+    register_member(
+        &mut name_list,
+        String::from("Engineers"),
+        String::from("Sally"),
+    );
+    println!("name_list: {:?}", name_list);
+    register_member(&mut name_list, String::from("Sales"), String::from("Jimmy"));
+    println!("name_list: {:?}", name_list);
 }
 
 fn mean(numbers: &Vec<i32>) -> f64 {
@@ -46,4 +58,9 @@ fn pig_latin(s: &str) -> String {
             format!("{}-{}ay", copied, first)
         }
     }
+}
+
+fn register_member(map: &mut HashMap<String, Vec<String>>, company: String, member: String) {
+    let company_record = map.entry(company).or_default();
+    company_record.push(member);
 }
