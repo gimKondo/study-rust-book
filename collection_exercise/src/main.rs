@@ -7,6 +7,10 @@ fn main() {
     println!("mean: {}", mean(&numbers));
     println!("median: {}", median(&numbers));
     println!("mode: {}", mode(&numbers));
+
+    println!("first: {}", pig_latin("first"));
+    println!("first: {}", pig_latin("ファースト"));
+    println!("apple: {}", pig_latin("apple"));
 }
 
 fn mean(numbers: &Vec<i32>) -> f64 {
@@ -31,4 +35,15 @@ fn mode(numbers: &Vec<i32>) -> i32 {
     }
     let max_entry = map.iter().max_by(|a, b| a.1.cmp(&b.1));
     **max_entry.unwrap().0
+}
+
+fn pig_latin(s: &str) -> String {
+    let mut copied = String::from(s);
+    match s.chars().nth(0).unwrap() {
+        'a' | 'i' | 'u' | 'e' | 'o' => format!("{}-hay", copied),
+        first => {
+            copied.remove(0);
+            format!("{}-{}ay", copied, first)
+        }
+    }
 }
